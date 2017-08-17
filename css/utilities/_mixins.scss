@@ -1,0 +1,75 @@
+@mixin cover() {
+	background-size: cover;
+	-ms-behavior: url(/backgroundsize.min.htc);
+}
+
+@mixin listReset() {
+	list-style: none;
+	padding: 0px;
+	
+	li { margin: 0px; padding: 0px; }
+}
+
+@mixin font-size($sizeValue: 1.6) {
+	font-size: ($sizeValue * 10) + px;
+	font-size: $sizeValue + rem;
+}
+
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  display: block;
+}
+
+@mixin transition($type, $speed: .2s, $ease: ease-in-out) {
+	-webkit-transition: $type #{$speed} #{$ease};
+	-moz-transition: $type #{$speed} #{$ease};
+	-ms-transition: $type #{$speed} #{$ease};
+	-o-transition: $type #{$speed} #{$ease};
+	transition: $type #{$speed} #{$ease};
+}
+
+@mixin clearfix {
+	
+	zoom: 1;
+	
+	// Include on parent to clear nested columns
+	&:before,
+	&:after {
+		content: '\0020';
+		display: block;
+		overflow: hidden;
+		visibility: hidden;
+		width: 0;
+		height: 0; 
+	}
+	
+	&:after {
+		clear: both; 
+	}
+
+}
+
+@mixin clearfix-row {
+		
+	zoom: 1; 
+	
+	// Include on row of columns	
+	&:before,
+	&::after {
+		content: '\0020';
+		display: block;
+		overflow: hidden;
+		visibility: hidden;
+		width: 0;
+		height: 0; 
+	}
+	
+	&::after {
+		clear: both; 
+	}
+
+}
